@@ -1,4 +1,4 @@
-package main.java.com.example.zadscraper;
+package com.example.zadscraper;
 
 /**
  * @author hek
