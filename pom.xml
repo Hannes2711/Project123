@@ -1,8 +1,8 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.vogella.build.maven.java</groupId>
-    <artifactId>com.vogella.build.maven.java</artifactId>
+    <artifactId>zadscraper</artifactId>
+    <groupId>com.starfinanz.zadscraper</groupId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -24,7 +24,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>com.vogella.build.maven.intro.Main</mainClass>
+                    <mainClass>com.starfinanz.zadscraper.Main</mainClass>
                 </configuration>
             </plugin>
             <plugin>
