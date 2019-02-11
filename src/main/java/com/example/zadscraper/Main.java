@@ -6,4 +6,9 @@ package main.java.com.example.zadscraper;
  * Created on 2019-02-11
  */
 public class Main {
+
+	public static void main(String[] args) {
+		System.out.println("Hello world!");
+	}
+
 }
