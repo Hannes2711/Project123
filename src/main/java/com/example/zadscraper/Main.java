@@ -16,7 +16,7 @@ public class Main {
 		System.out.println("Hello world!");
 
 		Document doc = Jsoup.connect("https://portal.mvp.bafin.de/database/ZahlInstInfo/suche.do?").get();
-		System.out.println(doc.title());
+		System.out.println(doc.body().toString());
 
 	}
 
