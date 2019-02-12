@@ -17,6 +17,7 @@ public class GotoPage {
   public static final String BAFIN_BASE_URL = "https://portal.mvp.bafin.de/database/ZahlInstInfo/";
 
   public static void main(String[] args) throws IOException {
+    Firma firma = new Firma();
     int seitenZahl = 1;
     Document doc;
 
@@ -33,7 +34,10 @@ public class GotoPage {
         String href = BAFIN_BASE_URL + element.attr("href");
         System.out.println("href = " + href);
 
-        // aufruf des scrapens der seite über hannes' code
+        FirmenDaten daten = firma.extractInformation(href);
+        System.out.println(" [ "+daten.getName()+"; "+daten.getKontoinformationsdiensteK()+"; "+ daten.getZahlungsauslösediensteZ()+"]");
+
+
       }
 
       if (firmenAufDerSeite == 20) {
