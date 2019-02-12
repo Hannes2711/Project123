@@ -1,6 +1,5 @@
 package com.example.zadscraper;
 
-import java.util.Date;
 
 public class FirmenDaten {
 
@@ -25,4 +24,5 @@ public class FirmenDaten {
   public String getZahlungsauslösediensteZ() {
     return ZahlungsauslösediensteZ;
   }
+
 }
