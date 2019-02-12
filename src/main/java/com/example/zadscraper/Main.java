@@ -1,7 +1,9 @@
 package com.example.zadscraper;
 
-import java.io.*;
-import java.util.*;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.IOException;
 
 /**
  * @author hek
@@ -11,21 +13,10 @@ import java.util.*;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		System.out.println("Hello world!");
+		System.out.println("Hallo du!");
 
-		BafinCompaniesScraper bps = new BafinCompaniesScraper();
-		List<String> allCompanyUrls = bps.getAllCompanyUrls();
+		Document doc = Jsoup.connect("https://portal.mvp.bafin.de/database/ZahlInstInfo/suche.do?").get();
 
-		System.out.println("allCompanyUrls.size() = <" + allCompanyUrls.size() + ">");
 
-		List<BafinCompanyPageScraper> results = new ArrayList<BafinCompanyPageScraper>();
-		for (String companyUrl : allCompanyUrls) {
-			System.out.println("companyUrl = <" + companyUrl + ">");
-			results.add( new BafinCompanyPageScraper(companyUrl) );
-		}
-
-		CSVWriter csvWriter = new CSVWriter();
-		csvWriter.writeFile("output.csv", results);
 	}
-
 }
