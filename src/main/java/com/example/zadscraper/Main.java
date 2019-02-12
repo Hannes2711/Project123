@@ -1,9 +1,9 @@
 package com.example.zadscraper;
 
-import org.jsoup.*;
-import org.jsoup.nodes.*;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
-import java.io.*;
+import java.io.IOException;
 
 /**
  * @author hek
@@ -13,11 +13,10 @@ import java.io.*;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		System.out.println("Hello world!");
+		System.out.println("Hallo du!");
 
 		Document doc = Jsoup.connect("https://portal.mvp.bafin.de/database/ZahlInstInfo/suche.do?").get();
-		System.out.println(doc.body().toString());
+
 
 	}
-
 }
