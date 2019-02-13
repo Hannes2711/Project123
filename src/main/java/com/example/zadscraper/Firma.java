@@ -1,15 +1,20 @@
 package com.example.zadscraper;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.nodes.TextNode;
-import org.jsoup.select.Elements;
+        import org.jsoup.Jsoup;
+        import org.jsoup.nodes.Document;
+        import org.jsoup.nodes.Element;
+        import org.jsoup.nodes.TextNode;
+        import org.jsoup.select.Elements;
 
-import java.io.IOException;
+        import javax.naming.Name;
+        import java.io.IOException;
+
+
 
 
 public class Firma {
+
+
 
   public FirmenDaten extractInformation(String href) throws IOException {
 
@@ -19,13 +24,24 @@ public class Firma {
 
     Document doc = Jsoup.connect(href).get();
 
+//für infos der Firma (Name, anschrift ...)
+    Elements Namen = doc.select("#content");
+    for (Element name1 : Namen) {
+
+      Elements Infoa = name1.select("p");
+      for (Element p : Infoa) {
+        TextNode NamenderFirma = (TextNode) Infoa.get(0).childNode(0);
+        name = NamenderFirma.toString();
+      }
+    }
+
+
     Elements erlaubnisTabelle = doc.select("#erlaubnis");
-    for (Element tabelle : erlaubnisTabelle) {
-      //System.out.println(tabelle.text());
+    for (
+            Element tabelle : erlaubnisTabelle) {
 
       Elements tbodys = tabelle.select("tbody");
       for (Element tbody : tbodys) {
-        //System.out.println("tbody = " + tbody);
 
         Elements tablerows = tbody.select("tr");
         for (Element tr : tablerows) {
@@ -33,9 +49,6 @@ public class Firma {
 
           TextNode textNode = (TextNode) tablecells.get(0).childNode(0);
           TextNode textNodeDate = (TextNode) tablecells.get(1).childNode(0);
-
-          //System.out.println("textNode.text() = " + textNode.text());
-          //System.out.println("textNodeDate.text() = " + textNodeDate.text());
 
           if (textNode.toString().equals("Kontoinformationsdienste (§ 1 Abs. 1 Satz 2 Nr. 8 ZAG)")) {
             kontoDatum = textNodeDate.text();
@@ -46,8 +59,8 @@ public class Firma {
       }
     }
 
+
     FirmenDaten result = new FirmenDaten(name, kontoDatum, zadDatum);
     return result;
   }
-
 }

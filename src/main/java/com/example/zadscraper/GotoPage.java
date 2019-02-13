@@ -30,7 +30,7 @@ public class GotoPage {
 
       while (seitenZahl > 0) {
 
-        System.out.println("Durchsuchen von Seite " + seitenZahl);
+        //System.out.println("Durchsuchen von Seite " + seitenZahl);
         doc = Jsoup.connect(BAFIN_BASE_URL + "suche.do?nameZahlungsinstitutButton=Suche+ZAG-Institute&d-4036871-p=" + seitenZahl).get();
         Elements select = doc.select("a[href^=zahlinst.do?id=]");
 
@@ -39,7 +39,7 @@ public class GotoPage {
           firmenAufDerSeite++;
 
           String href = BAFIN_BASE_URL + element.attr("href");
-          System.out.println("href = " + href);
+          //System.out.println("href = " + href);
 
           FirmenDaten daten = firma.extractInformation(href);
           String merged = "\"" + daten.getName() + "\";" + daten.getKontoinformationsdiensteK() + ";" + daten.getZahlungsauslösediensteZ() + "\n";
