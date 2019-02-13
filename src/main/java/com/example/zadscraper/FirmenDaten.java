@@ -7,6 +7,7 @@ public class FirmenDaten {
   String KontoinformationsdiensteK = null;
   String ZahlungsauslösediensteZ = null;
 
+
   public FirmenDaten(String name, String kontoinformationsdiensteK, String zahlungsauslösediensteZ) {
     this.name = name;
     KontoinformationsdiensteK = kontoinformationsdiensteK;

@@ -19,8 +19,8 @@ public class Firma {
   public FirmenDaten extractInformation(String href) throws IOException {
 
     String name = null;
-    String kontoDatum = null;
-    String zadDatum = null;
+    String kontoDatum = "-";
+    String zadDatum = "-";
 
     Document doc = Jsoup.connect(href).get();
 

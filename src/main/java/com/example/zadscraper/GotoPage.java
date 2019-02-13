@@ -23,7 +23,7 @@ public class GotoPage {
     try {
       csvWriter = new CsvWriter();
 
-      csvWriter.writeLine("Name;Kontoinformationsdienste;Zahlungsauslösedienste\n");
+      csvWriter.writeLine("Name;Kontoinformationsdienste;Zahlungsausloesedienste\n");
 
       int seitenZahl = 1;
       Document doc;
